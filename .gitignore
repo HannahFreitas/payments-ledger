@@ -1,0 +1,22 @@
+# Bundler and environment
+/.bundle
+/vendor/bundle
+.env*
+!.env.example
+
+# Logs, temp files and runtime state
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+/tmp/pids/*
+!/tmp/pids/.keep
+/storage/*
+!/storage/.keep
+
+# Secrets: never commit the master key
+/config/master.key
+/config/credentials/*.key
+
+# Test coverage report
+/coverage/

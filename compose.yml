@@ -1,0 +1,19 @@
+# Local Postgres for development and tests. Isolated on port 5544 so it never touches another server.
+services:
+  db:
+    image: postgres:18.6
+    environment:
+      POSTGRES_USER: ledger
+      POSTGRES_PASSWORD: ledger
+    ports:
+      - "5544:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ledger"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+volumes:
+  pgdata:
